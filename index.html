@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0e3841">
 <title>Manitas Fácil · Arregla tú mismo, paso a paso</title>
 <meta name="description" content="Tutoriales sencillos para reparaciones del hogar, bricolaje y jardinería, explicados sin tecnicismos.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🔧%3C/text%3E%3C/svg%3E">
@@ -13,22 +14,29 @@
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
-<header class="cabecera">
-  <a class="logo" href="./" aria-label="Manitas Fácil, inicio">Manitas<span>Fácil</span></a>
-  <p class="lema">Arréglalo tú mismo. Sin palabras raras.</p>
-  <button id="btn-nuevo" class="btn">Añadir tutorial</button>
-</header>
+<header class="top"><div class="wrap">
+  <a class="logo" href="./" aria-label="Manitas Fácil, inicio">🔧 Manitas<b>Fácil</b></a>
+  <span class="sp"></span>
+  <button id="btn-nuevo" class="btn">+ Añadir tutorial</button>
+</div></header>
 
-<main id="contenido">
-  <section id="vista-lista">
-    <div class="buscador">
+<section id="vista-lista">
+  <div class="hero"><div class="wrap">
+    <h1>Arréglalo <em>tú mismo</em></h1>
+    <p>Guías paso a paso, sin palabras raras, para la casa, el bricolaje y el jardín. <span id="stats"></span></p>
+  </div></div>
+  <div class="wrap">
+    <div class="buscar">
       <label for="q">¿Qué quieres arreglar?</label>
-      <input id="q" type="search" placeholder="Ej.: enchufe, puerta, césped…" autocomplete="off">
+      <input id="q" type="search" placeholder="¿Qué quieres arreglar? Ej.: enchufe, puerta, césped…" autocomplete="off">
     </div>
     <div id="filtros" class="filtros" role="group" aria-label="Filtrar por categoría"></div>
     <p id="contador" class="contador" aria-live="polite"></p>
     <ul id="lista" class="lista"></ul>
-  </section>
+  </div>
+</section>
+
+<main id="contenido" class="wrap">
   <article id="vista-guia" hidden></article>
 </main>
 
@@ -62,7 +70,7 @@
   </form>
 </dialog>
 
-<footer class="pie">Manitas Fácil · Consejos generales. Si dudas, llama a un profesional.</footer>
+<footer class="pie"><div class="wrap">Manitas Fácil · Consejos generales. En electricidad, gas y calefacción, si dudas, llama a un profesional.</div></footer>
 <script src="./js/data.js"></script>
 <script src="./js/tutoriales-extra.js"></script>
 <script src="./js/tutoriales-3.js"></script>

@@ -5,41 +5,56 @@ const esc = t => String(t ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt
 const norm = t => String(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 const load = () => { try { return JSON.parse(localStorage.getItem(LS)) || []; } catch { return []; } };
 const save = a => { try { localStorage.setItem(LS, JSON.stringify(a)); return true; } catch { return false; } };
+const CAT = {"Fontanería":["💧",205],"Enchufes y luz":["💡",45],"Paredes y pintura":["🎨",330],"Puertas y carpintería":["🚪",25],"Ventanas y exteriores":["🪟",190],"Jardinería":["🌿",130],"Huerto":["🍅",5],"Limpieza y mantenimiento":["🧽",170],"Electrodomésticos":["🔌",260],"Climatización":["❄️",215],"Muebles y montaje":["🪑",35],"Seguridad en casa":["🛡️",350],"Exterior y terraza":["☀️",80]};
+const ci = c => CAT[c] || ["🔧", 220];
+const nivel = d => /muy f/i.test(d) ? 1 : /media|cuidado/i.test(d) ? 3 : 2;
+const dots = n => `<span class="dots" aria-hidden="true">${[1,2,3].map(i => `<i class="${i <= n ? "on" : ""}"></i>`).join("")}</span>`;
 let custom = load(), cat = "Todas", q = "";
 const all = () => [...TUTORIALES, ...custom];
 
 function filtros() {
   const cats = ["Todas", ...new Set(all().map(t => t.categoria))];
-  $("#filtros").innerHTML = cats.map(c => `<button class="chip" aria-pressed="${c === cat}" data-c="${esc(c)}">${esc(c)}</button>`).join("");
+  $("#filtros").innerHTML = cats.map(c => `<button class="chip" aria-pressed="${c === cat}" data-c="${esc(c)}">${c === "Todas" ? "✨" : ci(c)[0]} ${esc(c)}</button>`).join("");
   $("#cats").innerHTML = cats.slice(1).map(c => `<option value="${esc(c)}">`).join("");
+  $("#stats").textContent = `${all().length} guías disponibles.`;
 }
 function lista() {
   const nq = norm(q);
   const r = all().filter(t => (cat === "Todas" || t.categoria === cat) &&
     norm([t.titulo, t.categoria, t.resumen, ...(t.herramientas || [])].join(" ")).includes(nq));
   $("#contador").textContent = `${r.length} ${r.length === 1 ? "guía" : "guías"}`;
-  $("#lista").innerHTML = r.length ? r.map(t => `<li><a class="tarjeta" href="#/guia/${esc(t.id)}">
-    <h2>${esc(t.titulo)}</h2><p>${esc(t.categoria)} · ${esc(t.tiempo)} · ${esc(t.dificultad)}</p>
-    ${t.resumen ? `<p>${esc(t.resumen)}</p>` : ""}</a></li>`).join("")
+  $("#lista").innerHTML = r.length ? r.map(t => { const [e, h] = ci(t.categoria); return `<li><a class="tarjeta" style="--h:${h}" href="#/guia/${esc(t.id)}">
+    <span class="ico" aria-hidden="true">${e}</span><div><span class="cat">${esc(t.categoria)}</span><h2>${esc(t.titulo)}</h2>
+    ${t.resumen ? `<p class="res">${esc(t.resumen)}</p>` : ""}
+    <p class="ms"><span>⏱ ${esc(t.tiempo)}</span><span>${dots(nivel(t.dificultad))}${esc(t.dificultad)}</span></p></div></a></li>`; }).join("")
     : `<li class="vacio">No hay guías con eso. Prueba otra palabra o añade tu propio tutorial.</li>`;
 }
+const lst = a => `<ul class="lst">${a.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
 function guia(id) {
   const t = all().find(x => x.id === id);
   if (!t) { location.hash = ""; return; }
-  const propio = String(t.id).startsWith("c-");
+  const propio = String(t.id).startsWith("c-"), [e, h] = ci(t.categoria), n = (t.pasos || []).length;
+  $("#vista-guia").style.setProperty("--h", h);
   $("#vista-guia").innerHTML = `
   <a class="volver" href="#">← Todas las guías</a>
-  <h1>${esc(t.titulo)}</h1><p>${esc(t.categoria)}</p>
-  <ul class="meta"><li>⏱ ${esc(t.tiempo)}</li><li>Dificultad: ${esc(t.dificultad)}</li></ul>
-  ${t.seguridad ? `<div class="seguridad" role="note"><strong>⚠ Seguridad:</strong> ${esc(t.seguridad)}</div>` : ""}
-  ${(t.antes || []).length ? `<h2 class="sec">Antes de empezar</h2><ul class="herr">${t.antes.map(a => `<li>${esc(a)}</li>`).join("")}</ul>` : ""}
-  <h2 class="sec">Herramientas y materiales</h2>
-  <ul class="herr">${(t.herramientas || []).map(h => `<li>${esc(h)}</li>`).join("")}</ul>
-  ${(t.compra || []).length ? `<h2 class="sec">Qué comprar exactamente</h2><ul class="herr">${t.compra.map(a => `<li>${esc(a)}</li>`).join("")}</ul>` : ""}
+  <header class="g-head"><span class="cat">${e} ${esc(t.categoria)}</span><h1>${esc(t.titulo)}</h1>
+    ${t.resumen ? `<p class="res">${esc(t.resumen)}</p>` : ""}
+    <ul class="meta"><li>⏱ ${esc(t.tiempo)}</li><li>${dots(nivel(t.dificultad))}${esc(t.dificultad)}</li><li>📋 ${n} pasos</li></ul></header>
+  ${t.seguridad ? `<div class="seguridad" role="note"><span class="sico" aria-hidden="true">⚠️</span><div><strong>Seguridad primero</strong><p>${esc(t.seguridad)}</p></div></div>` : ""}
+  ${(t.antes || []).length ? `<section class="card azul"><h2>👀 Antes de empezar</h2>${lst(t.antes)}</section>` : ""}
+  <div class="cols"><section class="card"><h2>🧰 Herramientas y materiales</h2>${lst(t.herramientas || [])}</section>
+  ${(t.compra || []).length ? `<section class="card"><h2>🛒 Qué comprar exactamente</h2>${lst(t.compra)}</section>` : ""}</div>
   <h2 class="sec">Paso a paso</h2>
-  <ol class="pasos">${(t.pasos || []).map(p => `<li><strong>${esc(p.texto)}</strong>${p.detalle ? `<p class="detalle">${esc(p.detalle)}</p>` : ""}${p.svg && !propio ? `<figure>${p.svg}</figure>` : ""}</li>`).join("")}</ol>
+  <p class="prog"><span id="progt">0 de ${n} pasos hechos</span><span class="bar"><i id="progb"></i></span><span>Toca el número para marcar</span></p>
+  <ol class="pasos">${(t.pasos || []).map((p, i) => `<li><button class="num" aria-pressed="false" aria-label="Marcar el paso ${i + 1} como hecho"><span>${i + 1}</span></button><div class="pbody"><strong>${esc(p.texto)}</strong>${p.detalle ? `<p class="detalle">${esc(p.detalle)}</p>` : ""}${p.svg && !propio ? `<figure>${p.svg}</figure>` : ""}</div></li>`).join("")}</ol>
   ${(t.problemas || []).length ? `<h2 class="sec">¿Algo salió mal?</h2>${t.problemas.map(p => `<details class="fallo"><summary>${esc(p.fallo)}</summary><p>${esc(p.solucion)}</p></details>`).join("")}` : ""}
   ${propio ? `<button class="btn sec borrar" id="borrar">Borrar este tutorial</button>` : ""}`;
+  document.querySelectorAll(".num").forEach(b => b.addEventListener("click", () => {
+    const on = b.getAttribute("aria-pressed") !== "true";
+    b.setAttribute("aria-pressed", on); b.closest("li").classList.toggle("hecho", on);
+    const d = document.querySelectorAll(".num[aria-pressed=true]").length;
+    $("#progt").textContent = `${d} de ${n} pasos hechos`; $("#progb").style.width = (n ? d / n * 100 : 0) + "%";
+  }));
   $("#borrar")?.addEventListener("click", () => {
     if (confirm("¿Borrar este tutorial?")) { custom = custom.filter(x => x.id !== id); save(custom); location.hash = ""; }
   });

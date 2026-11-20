@@ -12,3 +12,8 @@ Web estática (HTML + CSS + JS, sin build ni backend). Todas las rutas son relat
     git push -u origin main
 En GitHub: Settings → Pages → Source: **GitHub Actions**. El workflow publica en
 `https://TU_USUARIO.github.io/manitas-facil/`.
+
+## Si falla el despliegue ("No artifacts named github-pages")
+El workflow separa subir (build) y publicar (deploy) en dos trabajos para evitar un fallo
+intermitente de GitHub. Si aun así falla, no uses "Re-run jobs": haz un commit nuevo o "Run workflow".
+Debe existir un solo archivo en `.github/workflows/` (borra `static.yml` si lo creaste desde la plantilla).

@@ -32,10 +32,12 @@ function guia(id) {
   <h1>${esc(t.titulo)}</h1><p>${esc(t.categoria)}</p>
   <ul class="meta"><li>⏱ ${esc(t.tiempo)}</li><li>Dificultad: ${esc(t.dificultad)}</li></ul>
   ${t.seguridad ? `<div class="seguridad" role="note"><strong>⚠ Seguridad:</strong> ${esc(t.seguridad)}</div>` : ""}
-  <h2 class="sec">Qué necesitas</h2>
+  ${(t.antes || []).length ? `<h2 class="sec">Antes de empezar</h2><ul class="herr">${t.antes.map(a => `<li>${esc(a)}</li>`).join("")}</ul>` : ""}
+  <h2 class="sec">Herramientas y materiales</h2>
   <ul class="herr">${(t.herramientas || []).map(h => `<li>${esc(h)}</li>`).join("")}</ul>
+  ${(t.compra || []).length ? `<h2 class="sec">Qué comprar exactamente</h2><ul class="herr">${t.compra.map(a => `<li>${esc(a)}</li>`).join("")}</ul>` : ""}
   <h2 class="sec">Paso a paso</h2>
-  <ol class="pasos">${(t.pasos || []).map(p => `<li>${esc(p.texto)}${p.svg && !propio ? `<figure>${p.svg}</figure>` : ""}</li>`).join("")}</ol>
+  <ol class="pasos">${(t.pasos || []).map(p => `<li><strong>${esc(p.texto)}</strong>${p.detalle ? `<p class="detalle">${esc(p.detalle)}</p>` : ""}${p.svg && !propio ? `<figure>${p.svg}</figure>` : ""}</li>`).join("")}</ol>
   ${(t.problemas || []).length ? `<h2 class="sec">¿Algo salió mal?</h2>${t.problemas.map(p => `<details class="fallo"><summary>${esc(p.fallo)}</summary><p>${esc(p.solucion)}</p></details>`).join("")}` : ""}
   ${propio ? `<button class="btn sec borrar" id="borrar">Borrar este tutorial</button>` : ""}`;
   $("#borrar")?.addEventListener("click", () => {

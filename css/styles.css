@@ -47,3 +47,5 @@ dialog label>*{font-weight:400;margin-top:4px}
 .dos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .acciones{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
 .nota{color:var(--gris);margin:0}.err{color:var(--rojo);font-weight:700;min-height:1.2em}
+.pasos strong{display:block;font-size:1.05rem}
+.detalle{margin:6px 0 0;white-space:pre-line}

@@ -48,7 +48,7 @@ const LOTE_10 = [
  pasos: [
   P("Comprueba el material", "Mira si el grifo es cromado. Si es dorado, negro mate o de latón envejecido, limita el tiempo del vinagre a 15 minutos."),
   P("Prepara la mezcla", "Usa vinagre blanco puro o ácido cítrico disuelto en agua caliente."),
-  P("Envuelve el grifo", "Llena una bolsa con vinagre, cubre el grifo y átala con la goma para que quede sumergido. Si es la alcachofa, desenrósca y sumérgela en un recipiente.", DIB.grifo),
+  P("Envuelve el grifo", "Llena una bolsa con vinagre, cubre el grifo y átala con la goma para que quede sumergido. Si es la alcachofa, desenrósca y sumérgela en un recipiente.", DIB.vinagre),
   P("Espera", "Entre 30 y 60 minutos para cal normal. Si es mucha, hasta 2 horas."),
   P("Retira la bolsa y frota", "Frota con el cepillo de dientes los restos blandos. Pincha con una aguja los agujeros de la alcachofa que sigan tapados."),
   P("Aclara bien", "Aclara con agua abundante para que no quede vinagre. Deja correr agua unos segundos."),

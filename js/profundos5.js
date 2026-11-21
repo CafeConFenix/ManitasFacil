@@ -106,11 +106,11 @@ const LOTE_5 = [
   "Alcohol para limpiar."],
  seguridad: "Si trabajas en altura, usa una escalera estable y ten cuidado con los cristales.",
  pasos: [
-  P("Localiza las fugas", "Con la ventana cerrada, pasa una vela o incienso por el contorno del marco. Marca con cinta los puntos donde la llama se mueve.", DIB.ventana),
+  P("Localiza las fugas", "Con la ventana cerrada, pasa una vela o incienso por el contorno del marco. Marca con cinta los puntos donde la llama se mueve."),
   P("Mide el hueco y compra el burlete", "Usa un trozo de cartón doblado o una regla para medir el hueco. Compra el burlete adecuado."),
   P("Limpia el marco", "Quita polvo y grasa con un trapo y alcohol. Deja secar bien: el adhesivo no pega en húmedo."),
   P("Mide y corta el burlete", "Mide cada lado del marco y corta el burlete con tijeras, 1 cm más largo para compensar al pegar."),
-  P("Pega sin estirar", "Despega el papel protector poco a poco y presiona. No estires el burlete, porque se encoge y deja huecos en las esquinas."),
+  P("Pega sin estirar", "Despega el papel protector poco a poco y presiona. No estires el burlete, porque se encoge y deja huecos en las esquinas.", DIB.ventana),
   P("Sella el exterior con silicona", "Pega cinta a ambos lados de la junta entre marco y pared, aplica un cordón de silicona y alisa con un dedo con agua jabonosa. Quita la cinta enseguida."),
   P("Cierra y comprueba", "Cierra la ventana: debe cerrar firme pero sin forzar. Repite la prueba de la vela.")
  ],

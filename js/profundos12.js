@@ -12,10 +12,10 @@ const LOTE_12 = [
  seguridad: "Comprueba con el detector que no hay cables ni tuberías antes de taladrar y usa gafas.",
  pasos: [
   P("Mide y decide la altura", "Marca en la pared la altura de la barra, unos 10-15 cm sobre el marco. Mide a ambos lados el sobrante de 15-20 cm."),
-  P("Marca los puntos de los soportes", "Coloca el soporte en la pared y marca los agujeros con lápiz. Comprueba con el nivel que los dos lados coincidan en altura.", DIB.taco),
+  P("Marca los puntos de los soportes", "Coloca el soporte en la pared y marca los agujeros con lápiz. Comprueba con el nivel que los dos lados coincidan en altura."),
   P("Revisa cables y tuberías", "Pasa el detector por las marcas. Si detecta algo, mueve el soporte unos centímetros."),
   P("Taladra", "Usa broca del mismo diámetro que el taco, a baja velocidad, y para en la profundidad marcada con cinta en la broca."),
-  P("Coloca tacos y soportes", "Introduce los tacos, aspira el polvo y atornilla los soportes sin apretar del todo hasta comprobar el nivel."),
+  P("Coloca tacos y soportes", "Introduce los tacos, aspira el polvo y atornilla los soportes sin apretar del todo hasta comprobar el nivel.", X.taco),
   P("Coloca la barra y las anillas", "Pasa las anillas por la barra antes de fijar los remates y encájala en los soportes."),
   P("Cuelga la cortina y prueba", "Cuelga la cortina y ábrela y ciérrala varias veces. Comprueba que los soportes no se mueven.")],
  problemas: [Q("Queda torcida", "Aflojar los soportes y corregir con el nivel antes de apretar."), Q("Se cae el soporte", "El taco no agarra. Usa uno más largo o específico para tu pared."), Q("La cortina se queda enganchada", "Las anillas son pequeñas o la barra está mal alineada. Revisa el nivel.")]
@@ -53,8 +53,8 @@ const LOTE_12 = [
  pasos: [
   P("Decide la altura", "El centro del espejo suele quedar a 1,5 m del suelo. Marca con cinta de carrocero su contorno en la pared."),
   P("Marca los puntos de fijación", "Mide la distancia entre los puntos de colgado del espejo y traspásala a la pared con el nivel."),
-  P("Busca cables y tuberías", "Pasa el detector por las marcas. Si hay algo, cambia el punto.", DIB.taco),
-  P("Taladra y coloca los tacos", "Taladra con la broca adecuada y pon tacos resistentes. Para pladur, usa los de expansión."),
+  P("Busca cables y tuberías", "Pasa el detector por las marcas. Si hay algo, cambia el punto."),
+  P("Taladra y coloca los tacos", "Taladra con la broca adecuada y pon tacos resistentes. Para pladur, usa los de expansión.", X.taco),
   P("Fija los soportes", "Atornilla los soportes y comprueba que aguantan tirando con la mano antes de colgar."),
   P("Cuelga el espejo entre dos personas", "Apoya el espejo en el suelo sobre una manta y levántalo entre dos hasta encajarlo en los soportes."),
   P("Comprueba y pon los topes", "Revisa con el nivel que esté recto y pon topes de goma abajo para que no se mueva.")],

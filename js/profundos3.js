@@ -15,8 +15,8 @@ const LOTE_3 = [
   "Brillo: se mide en lúmenes. Una de 60 W antigua equivale a unos 800 lúmenes."],
  seguridad: "Apaga el interruptor y, si puedes, baja el automático. Sube a la escalera con tres puntos de apoyo (dos pies y una mano) y nunca al último peldaño.",
  pasos: [
-  P("Apaga la luz y espera a que se enfríe", "Apaga el interruptor. Si la lámpara es de techo o tiene partes metálicas, baja además el automático del alumbrado en el cuadro. Espera 5-10 minutos si estaba encendida.", DIB.escalera),
-  P("Coloca la escalera y sube con cuidado", "Abre la escalera por completo y comprueba que los seguros están puestos. Sitúala sobre suelo plano. Sube con una mano libre para agarrarte y mantén el cuerpo centrado."),
+  P("Apaga la luz y espera a que se enfríe", "Apaga el interruptor. Si la lámpara es de techo o tiene partes metálicas, baja además el automático del alumbrado en el cuadro. Espera 5-10 minutos si estaba encendida."),
+  P("Coloca la escalera y sube con cuidado", "Abre la escalera por completo y comprueba que los seguros están puestos. Sitúala sobre suelo plano. Sube con una mano libre para agarrarte y mantén el cuerpo centrado.", DIB.escalera),
   P("Quita la bombilla vieja", "Rosca E27 o E14: sujétala con un trapo y gírala hacia la izquierda sin presionar demasiado. Foco GU10: empuja un poco hacia arriba y gira un cuarto de vuelta a la izquierda hasta que se suelte. Pines G9 o GU5.3: tira recto hacia abajo.", DIB.bombilla),
   P("Mira el portalámparas", "Comprueba que no está ennegrecido ni roto. Si el casquillo está sucio, límpialo con un trapo seco y no metas nunca los dedos ni metal."),
   P("Pon la nueva", "Rosca: gira a la derecha hasta que haga tope y no más (si fuerzas, se rompe). Foco GU10: encaja los pines, empuja hacia arriba y gira un cuarto de vuelta a la derecha hasta que haga clic. Pines finos: empuja recto hasta el fondo."),
@@ -45,11 +45,11 @@ const LOTE_3 = [
  seguridad: "Usa gafas y mascarilla. Comprueba con el detector que no hay cables ni tuberías antes de taladrar.",
  pasos: [
   P("Elige el sitio y marca la altura", "Marca con lápiz y comprueba con el nivel. Si cuelgas un estante, marca los puntos de los dos soportes o los agujeros de la pieza a la distancia exacta."),
-  P("Busca cables y tuberías", "Pasa el detector por la zona en horizontal y en vertical. Marca con lápiz lo que detecte y cambia de sitio si hay algo.", DIB.taco),
+  P("Busca cables y tuberías", "Pasa el detector por la zona en horizontal y en vertical. Marca con lápiz lo que detecte y cambia de sitio si hay algo."),
   P("Elige broca y modo de taladro", "La broca tiene que ser del mismo diámetro que el taco (un taco de 6 mm pide una broca de 6 mm). Hormigón o ladrillo macizo: usa percusión. Ladrillo hueco y pladur: sin percusión, para no romper el tabique."),
   P("Marca la profundidad en la broca", "Pega un trozo de cinta de carrocero en la broca a una distancia igual a la longitud del taco más 1 cm. Así sabrás cuándo parar."),
   P("Taladra", "Empieza despacio y apoya la broca recta, sin inclinar. Sube la velocidad cuando haya entrado. Cuando llegue a la cinta, para y saca la broca sin dejar de girar. Aspira el polvo del agujero."),
-  P("Pon el taco", "Introduce el taco con la mano; si no entra, golpéalo con un martillo hasta que quede a ras de la pared. No debe sobresalir ni girar."),
+  P("Pon el taco", "Introduce el taco con la mano; si no entra, golpéalo con un martillo hasta que quede a ras de la pared. No debe sobresalir ni girar.", X.taco),
   P("Atornilla el soporte", "Coloca el soporte o el tornillo y atornilla. Si cuelgas un cuadro con tornillo, deja 3 mm fuera para colgar la anilla. Aprieta firme, sin pasarte."),
   P("Prueba antes de cargar", "Tira del soporte con la mano. Si se mueve, saca el tornillo y pon un taco más grande o más largo. Cuando aguante, coloca la estantería y ve cargando peso poco a poco.")
  ],
@@ -75,12 +75,12 @@ const LOTE_3 = [
   "Rodillo de pelo medio (para paredes lisas) y brocha plana."],
  seguridad: "Ventila la habitación mientras pintas y mientras seca. Usa guantes y no pintes con la escalera en mal estado.",
  pasos: [
-  P("Prepara la habitación", "Aparta los muebles o cúbrelos con plástico. Cubre el suelo. Quita enchufes y tapas de interruptores o protégelos con cinta.", DIB.pintura),
+  P("Prepara la habitación", "Aparta los muebles o cúbrelos con plástico. Cubre el suelo. Quita enchufes y tapas de interruptores o protégelos con cinta."),
   P("Limpia y repara la pared", "Quita polvo y telarañas. Lava las zonas con grasa con agua y jabón neutro. Rasca la pintura suelta, tapa agujeros con masilla y lija cuando seque."),
   P("Protege marcos, rodapiés y esquinas", "Pega cinta de carrocero en el borde de marcos, rodapiés y techo. Presiona el borde con la uña para que no pase pintura."),
   P("Mezcla y prepara la pintura", "Remueve la pintura con el palo hasta que quede uniforme. Si el envase lo dice, diluye la primera mano con un 10 % de agua. Echa un poco en la bandeja."),
   P("Recorta bordes y esquinas con la brocha", "Pinta con la brocha una franja de 5-8 cm en esquinas y junto a la cinta. Hazlo antes de usar el rodillo, para que se unan las dos zonas aún húmedas."),
-  P("Pinta con el rodillo", "Moja el rodillo, escúrrelo en la rejilla. Pinta una zona de 1 metro con movimientos en forma de W y luego repásala con pasadas rectas de arriba abajo. No presiones: deja que la pintura se reparta sola. Mantén siempre el borde húmedo."),
+  P("Pinta con el rodillo", "Moja el rodillo, escúrrelo en la rejilla. Pinta una zona de 1 metro con movimientos en forma de W y luego repásala con pasadas rectas de arriba abajo. No presiones: deja que la pintura se reparta sola. Mantén siempre el borde húmedo.", DIB.pintura),
   P("Deja secar y da una segunda mano", "Espera el tiempo que indica el envase, normalmente 4-6 horas. Da la segunda mano igual que la primera."),
   P("Quita la cinta y limpia", "Retira la cinta antes de que la pintura se seque del todo, tirando despacio en ángulo. Limpia las herramientas con agua si la pintura es plástica.")
  ],
@@ -106,10 +106,10 @@ const LOTE_3 = [
   "Imprimación para la zona reparada."],
  seguridad: "Usa mascarilla al lijar y ventila.",
  pasos: [
-  P("Limpia el agujero o la grieta", "Retira polvo y trozos sueltos con un cepillo o una brocha. Si es una grieta, ábrela un poco con la punta del cúter en forma de V para que entre masilla.", DIB.masilla),
+  P("Limpia el agujero o la grieta", "Retira polvo y trozos sueltos con un cepillo o una brocha. Si es una grieta, ábrela un poco con la punta del cúter en forma de V para que entre masilla."),
   P("Humedece ligeramente", "Pasa una esponja casi seca por el borde. Esto ayuda a que la masilla agarre bien."),
   P("Carga la espátula", "Coge una cantidad de masilla en el borde de la espátula, la que cabe en el agujero. Mejor poca que mucha."),
-  P("Rellena presionando", "Aprieta con la espátula inclinada contra el agujero para que entre hasta el fondo. Deja que sobresalga un poco: al secar se reduce."),
+  P("Rellena presionando", "Aprieta con la espátula inclinada contra el agujero para que entre hasta el fondo. Deja que sobresalga un poco: al secar se reduce.", DIB.masilla),
   P("Alisa", "Pasa la espátula casi plana en un solo movimiento para quitar el exceso. Quita lo que sobre alrededor con un trapo húmedo."),
   P("Deja secar", "Respeta el tiempo del envase, entre 1 y 4 horas. Si la masilla se hunde al secar, aplica una segunda capa fina."),
   P("Lija", "Cuando esté seca, lija con grano 120 en movimientos circulares suaves y termina con grano 180. Pasa la mano: no debe notarse el borde. Limpia el polvo."),

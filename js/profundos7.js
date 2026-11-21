@@ -15,9 +15,9 @@ const LOTE_7 = [
   "Si es grande: un trozo de pladur del mismo grosor, unos listones de madera y tornillos para pladur de 25 mm."],
  seguridad: "Usa mascarilla al lijar: el polvo de yeso irrita los pulmones.",
  pasos: [
-  P("Mide, revisa y limpia", "Mide el agujero y mira por dentro con una linterna. Quita los trozos sueltos con el cúter y limpia el polvo del borde.", DIB.masilla),
+  P("Mide, revisa y limpia", "Mide el agujero y mira por dentro con una linterna. Quita los trozos sueltos con el cúter y limpia el polvo del borde."),
   P("Si es pequeño (hasta 10 cm): coloca el parche", "Pega el parche autoadhesivo centrado sobre el agujero, apretando bien los bordes con la espátula."),
-  P("Aplica la primera capa de masilla", "Extiende masilla sobre el parche con la espátula pequeña, tapando la malla y 3-4 cm más allá. Alisa en una sola pasada."),
+  P("Aplica la primera capa de masilla", "Extiende masilla sobre el parche con la espátula pequeña, tapando la malla y 3-4 cm más allá. Alisa en una sola pasada.", DIB.masilla),
   P("Si es grande (más de 10 cm): refuerza por detrás", "Recorta el agujero a un cuadrado limpio. Introduce un listón de madera por detrás, más largo que el agujero, y atorníllalo a la pared a través del pladur por arriba y por abajo."),
   P("Corta y coloca la pieza", "Corta un trozo de pladur de la medida del cuadrado, colócalo y atorníllalo al listón. Los tornillos deben quedar un poco hundidos pero sin romper el cartón."),
   P("Cubre las juntas con cinta y masilla", "Pega cinta de juntas alrededor de la pieza y cúbrela con masilla, extendiendo la capa unos 5 cm hacia fuera."),
@@ -48,7 +48,7 @@ const LOTE_7 = [
  seguridad: "Bloquea la persiana en las guías antes de abrir el cajón. Los muelles del recogedor pueden saltar: ábrelo despacio.",
  pasos: [
   P("Comprueba qué falla", "Tira de la cinta: si sale suelta sin resistencia, está rota o fuera del rodillo. Si hay resistencia pero la persiana no sube, puede estar atascada o con lamas rotas."),
-  P("Baja la persiana del todo y bloquéala", "Si no baja, pide ayuda para sujetarla. Coloca cuñas en las guías o pega cinta adhesiva fuerte en las lamas altas para que no se mueva.", DIB.escalera),
+  P("Baja la persiana del todo y bloquéala", "Si no baja, pide ayuda para sujetarla. Coloca cuñas en las guías o pega cinta adhesiva fuerte en las lamas altas para que no se mueva."),
   P("Abre el recogedor", "Desenrosca los tornillos de la tapa del recogedor, en la pared, y retírala con cuidado. Fíjate en cómo está colocado todo y haz una foto."),
   P("Saca la cinta vieja", "Suelta los restos de la cinta del rodillo del recogedor y del enganche de la persiana. Anota el ancho y el largo."),
   P("Corta y prepara la cinta nueva", "Corta el extremo en diagonal y quémalo ligeramente con un mechero para que no se deshilache."),

@@ -46,9 +46,9 @@ const LOTE_6 = [
  pasos: [
   P("Desenchufa y deja enfriar", "Desconecta de la corriente. Si se acaba de usar, espera a que el agua se enfríe."),
   P("Prepara el suelo", "Coloca toallas y la bandeja frente a la trampilla. Si la lavadora está alta, pon la bandeja plana."),
-  P("Abre la trampilla", "Haz palanca con el destornillador en la ranura o tira del borde. Verás el filtro: un tapón redondo con asa."),
+  P("Abre la trampilla", "Haz palanca con el destornillador en la ranura o tira del borde. Verás el filtro: un tapón redondo con asa.", DIB.lavadora),
   P("Vacía el agua", "Si hay un tubito de emergencia, sácalo, quita el tapón y deja salir el agua en la bandeja. Si no, afloja el filtro un poco para que salga agua poco a poco."),
-  P("Saca el filtro", "Gira a la izquierda sin prisa. Cuando se suelte, tira hacia ti con cuidado.", DIB.sifon),
+  P("Saca el filtro", "Gira a la izquierda sin prisa. Cuando se suelte, tira hacia ti con cuidado."),
   P("Limpia el filtro", "Quita pelusas, monedas, pelos y suciedad. Lávalo con agua y un cepillo. Revisa que no esté roto."),
   P("Mira la bomba con una linterna", "Mira el hueco donde estaba el filtro. Comprueba que la hélice de la bomba gira con el dedo. Quita lo que veas enredado."),
   P("Vuelve a montar", "Enrosca el filtro a la derecha hasta que haga tope. Cierra el tubito de emergencia y la trampilla. Enchufa y haz un programa corto para comprobar que no gotea.")
@@ -74,8 +74,8 @@ const LOTE_6 = [
   "Muelle desatascador para bajantes."],
  seguridad: "Apoya la escalera con un ángulo de unos 75 grados: la base separada del muro 1 metro por cada 4 metros de altura. Pide a alguien que la sujete. No te estires: mueve la escalera.",
  pasos: [
-  P("Prepara la zona", "Extiende una lona bajo el canalón para recoger los restos y colócate sobre suelo firme.", DIB.escalera),
-  P("Coloca la escalera", "Abre y apoya la escalera con el ángulo correcto. Que alguien la sujete."),
+  P("Prepara la zona", "Extiende una lona bajo el canalón para recoger los restos y colócate sobre suelo firme."),
+  P("Coloca la escalera", "Abre y apoya la escalera con el ángulo correcto. Que alguien la sujete.", DIB.escalera),
   P("Retira hojas y suciedad", "Con la paleta y guantes, saca los restos del canalón y échalos al cubo. Cuelga el cubo en un escalón."),
   P("Cepilla el interior", "Frota con el cepillo para quitar el barro pegado."),
   P("Aclara con la manguera", "Empieza por el extremo más alejado del bajante y avanza hacia él para empujar la suciedad."),
@@ -106,7 +106,7 @@ const LOTE_6 = [
  seguridad: "Usa guantes. El agua estancada puede tener bacterias.",
  pasos: [
   P("Quita la rejilla", "Mira si lleva tornillo en el centro. Si no, haz palanca suave con un destornillador plano en el borde. Guarda las piezas."),
-  P("Saca el pelo que se ve", "Con el gancho de alambre o la tira desatascadora, tira de los pelos. Hazlo con guantes y mete la tira hasta donde puedas.", DIB.sifon),
+  P("Saca el pelo que se ve", "Con el gancho de alambre o la tira desatascadora, tira de los pelos. Hazlo con guantes y mete la tira hasta donde puedas."),
   P("Limpia el tapón sifónico", "Muchas duchas tienen un tapón con forma de bote bajo la rejilla. Sácalo y limpia por dentro."),
   P("Usa la ventosa", "Pon 3 cm de agua en la ducha, coloca la ventosa y empuja y tira 15-20 veces. Levántala de golpe al final."),
   P("Echa bicarbonato y vinagre", "Echa medio vaso de bicarbonato y luego un vaso de vinagre. Espera 15 minutos y aclara con agua caliente del grifo."),

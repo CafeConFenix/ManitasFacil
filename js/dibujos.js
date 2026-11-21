@@ -1,7 +1,7 @@
 /* Dibujos técnicos sencillos y reutilizables + asignación a pasos */
 const F = (a, b, c, d) => { const g = Math.atan2(d - b, c - a), h = 8;
   return `<path d="M${a} ${b}L${c} ${d}"/><path d="M${c} ${d}l${-h * Math.cos(g - .45)} ${-h * Math.sin(g - .45)}M${c} ${d}l${-h * Math.cos(g + .45)} ${-h * Math.sin(g + .45)}"/>`; };
-const V = (l, body) => `<svg viewBox="0 0 240 130" role="img" aria-label="${l}"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">${body}</g><text x="120" y="126" font-size="11" text-anchor="middle" fill="currentColor">${l}</text></svg>`;
+const V = (l, body) => `<svg viewBox="0 0 240 140" role="img" aria-label="${l}"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">${body}</g><text x="120" y="135" font-size="11" text-anchor="middle" fill="currentColor">${l}</text></svg>`;
 const Y = "#f7c600", G = "#6aa84f";
 const DIB = {
  llave: X.llave, taco: X.taco,
@@ -34,3 +34,6 @@ const IL = {
 };
 IL["cambiar-interruptor"] = [];
 TUTORIALES.forEach(t => (IL[t.id] || []).forEach(([i, k]) => { if (t.pasos[i] && !t.pasos[i].svg) t.pasos[i].svg = DIB[k]; }));
+
+DIB.lavadora = V("Trampilla del filtro: abajo a la derecha", `<rect x="70" y="8" width="100" height="108" rx="8"/><rect x="82" y="16" width="76" height="16" rx="3"/><circle cx="120" cy="64" r="26"/><circle cx="120" cy="64" r="16" stroke-opacity=".4"/><rect x="128" y="98" width="34" height="12" rx="3" fill="${Y}"/>${F(214,84,168,100)}`);
+DIB.vinagre = V("Bolsa con vinagre atada al grifo", `<path d="M20 112h200"/><rect x="88" y="62" width="30" height="50"/><rect x="82" y="46" width="42" height="16" fill="${Y}"/><path d="M103 46V30h50q18 0 18 18v14"/><path d="M148 52h44v38q0 18-22 18t-22-18z" fill="${Y}" fill-opacity=".5"/><path d="M146 52h48" stroke-width="5"/>`);

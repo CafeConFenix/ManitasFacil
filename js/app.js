@@ -132,7 +132,7 @@ function ruta() {
   const m = location.hash.match(/^#\/guia\/(.+)$/);
   $("#vista-lista").hidden = !!m; $("#vista-guia").hidden = !m;
   if (m) guia(decodeURIComponent(m[1])); else { filtros(); lista(); }
-  scrollTo(0, 0);
+  if (m || !location.hash) scrollTo(0, 0);
 }
 const lines = s => String(s || "").split("\n").map(x => x.trim()).filter(Boolean);
 function añadir(t) {

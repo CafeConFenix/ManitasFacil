@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Manitas Fácil">
+<rect width="512" height="512" rx="112" fill="#0e3841"/>
+<path d="M88 262 256 118 424 262" fill="none" stroke="#ffc800" stroke-width="38" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M138 246v146h236V246" fill="none" stroke="#ffc800" stroke-width="38" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M200 350 282 268" stroke="#fff" stroke-width="32" stroke-linecap="round"/>
+<circle cx="298" cy="252" r="36" fill="none" stroke="#fff" stroke-width="26" stroke-dasharray="182 44.2" transform="rotate(-10 298 252)"/>
+</svg>

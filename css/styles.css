@@ -93,3 +93,35 @@ input:focus,select:focus,textarea:focus{border-color:var(--ink);outline:none}
 .nota{color:var(--mut);margin:0}.err{color:var(--red);font-weight:700;min-height:1.2em}
 .pie{background:var(--teal);color:#bcd3d9;padding:28px 0;margin-top:20px;font-size:.95rem}
 @media print{.top,.hero,.buscar,.volver,.filtros,.pie,.borrar{display:none}.pbody,.card{box-shadow:none;border:1px solid #ccc}}
+.top .btn.sec{color:#fff;border-color:rgba(255,255,255,.35)}
+.rel{position:relative}.rel .tarjeta{padding-right:64px}
+.fav{position:absolute;top:16px;right:14px;z-index:2;width:40px;height:40px;border-radius:50%;border:0;background:var(--bg);color:var(--line);font-size:1.25rem;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+.fav[aria-pressed=true]{color:#e0245e}
+.barra{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.niv{color:var(--mut);font-size:.95rem}.niv select{width:auto;padding:6px 12px;margin-left:6px}
+.acc{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.acc .btn{padding:9px 16px}.acc .btn.sec{background:var(--surf);border-color:transparent}
+.lnk{background:none;border:0;color:var(--ink);text-decoration:underline;font:inherit;cursor:pointer}
+.modo{position:fixed;inset:0;z-index:60;background:var(--bg);display:flex;flex-direction:column}.modo[hidden]{display:none}
+.modo-top{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--teal);color:#fff}.modo-top span{flex:1;font-weight:700}
+.m-bar{height:6px;background:var(--line)}.m-bar i{display:block;height:100%;width:0;background:var(--yel);transition:width .25s}
+.modo-body{flex:1;overflow:auto;padding:26px 20px;max-width:760px;margin:0 auto;width:100%}
+#m-n{color:var(--mut);font-weight:700;margin:0}.modo-body h2{font-size:clamp(1.7rem,6vw,2.5rem);margin:6px 0 14px}#m-d{font-size:1.2rem;white-space:pre-line}
+.modo-nav{display:flex;gap:10px;padding:14px 16px calc(14px + env(safe-area-inset-bottom));background:var(--surf);box-shadow:0 -4px 16px rgba(0,0,0,.12)}
+.modo-nav .btn{flex:1;padding:16px;font-size:1.1rem}.modo-nav .btn:disabled{opacity:.4}
+.sin-scroll{overflow:hidden}
+#toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:var(--ink);color:var(--bg);padding:12px 22px;border-radius:99px;opacity:0;pointer-events:none;transition:.25s;z-index:99;font-weight:700}#toast.on{opacity:1;transform:translate(-50%,0)}
+@media print{.acc,.prog,.modo,#toast{display:none}}
+.top .wrap{flex-wrap:wrap;height:auto;min-height:62px;padding-top:8px;padding-bottom:8px}
+.logo img{border-radius:11px;display:block}
+@media(max-width:640px){.top .btn{padding:8px 11px;font-size:.85rem}.logo{font-size:1.15rem}.logo img{width:32px;height:32px}.top .wrap{gap:8px}}
+.tm-row{margin:10px 0 0;display:flex;gap:8px;flex-wrap:wrap}
+.tmr{border:0;border-radius:99px;background:var(--yel);color:#14282d;font:700 .95rem inherit;padding:7px 14px;cursor:pointer;box-shadow:0 2px 0 rgba(0,0,0,.18)}
+.tm{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);z-index:70;background:var(--teal);color:#fff;border-radius:18px;padding:10px 12px 10px 18px;display:flex;align-items:center;gap:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);max-width:calc(100% - 24px)}
+.tm[hidden]{display:none}.tm span{max-width:30vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.9rem;color:#cfe3e8}.tm strong{font:800 1.6rem "Bricolage Grotesque",sans-serif;font-variant-numeric:tabular-nums}.tm .btn.sec{color:#fff;border-color:rgba(255,255,255,.4);padding:7px 14px}
+.dh{display:flex;justify-content:space-between;align-items:center;gap:12px}.dh h2{margin:0}
+.tabs{display:flex;gap:10px;margin:14px 0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}@media(max-width:520px){.grid3{grid-template-columns:1fr 1fr}}
+.res-box{background:var(--blue);border-radius:14px;padding:16px 18px;margin-top:14px}.res-box strong{font-size:1.7rem;font-family:"Bricolage Grotesque",sans-serif}.res-box p{margin:6px 0 0;font-size:.95rem}
+.chk-l{display:flex!important;gap:10px;align-items:center}.chk-l input{width:auto}
+#calc{max-height:92vh;overflow:auto}
+@media print{.tm,#calc{display:none}}

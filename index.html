@@ -4,9 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0e3841">
+<link rel="manifest" href="./manifest.webmanifest">
 <title>Manitas Fácil · Arregla tú mismo, paso a paso</title>
 <meta name="description" content="Tutoriales sencillos para reparaciones del hogar, bricolaje y jardinería, explicados sin tecnicismos.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🔧%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./icon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:wght@700;800&display=swap">
@@ -15,8 +17,10 @@
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
 <header class="top"><div class="wrap">
-  <a class="logo" href="./" aria-label="Manitas Fácil, inicio">🔧 Manitas<b>Fácil</b></a>
+  <a class="logo" href="./" aria-label="Manitas Fácil, inicio"><img src="./icon.svg" alt="" width="40" height="40"> Manitas<b>Fácil</b></a>
   <span class="sp"></span>
+  <button id="btn-calc" class="btn sec">🧮 Calculadoras</button>
+  <button id="btn-instalar" class="btn sec" hidden>⬇ Instalar app</button>
   <button id="btn-nuevo" class="btn">+ Añadir tutorial</button>
 </div></header>
 
@@ -31,7 +35,7 @@
       <input id="q" type="search" placeholder="¿Qué quieres arreglar? Ej.: enchufe, puerta, césped…" autocomplete="off">
     </div>
     <div id="filtros" class="filtros" role="group" aria-label="Filtrar por categoría"></div>
-    <p id="contador" class="contador" aria-live="polite"></p>
+    <div class="barra"><p id="contador" class="contador" aria-live="polite"></p><label class="niv">Dificultad <select id="niv"><option value="0">Todas</option><option value="1">Muy fácil</option><option value="2">Fácil</option><option value="3">Media</option></select></label></div>
     <ul id="lista" class="lista"></ul>
   </div>
 </section>
@@ -70,6 +74,31 @@
   </form>
 </dialog>
 
+<div id="modo" class="modo" hidden role="dialog" aria-modal="true" aria-label="Modo paso a paso">
+  <div class="modo-top"><span id="m-tit"></span><button id="m-x" class="btn sec">Cerrar ✕</button></div>
+  <div class="m-bar"><i id="m-bar"></i></div>
+  <div class="modo-body"><p id="m-n"></p><h2 id="m-t"></h2><p id="m-d"></p><div id="m-f"></div></div>
+  <div class="modo-nav"><button id="m-prev" class="btn sec">← Anterior</button><button id="m-next" class="btn">Siguiente →</button></div>
+</div>
+<dialog id="calc">
+  <div class="dh"><h2>🧮 Calculadoras</h2><button id="calc-x" class="btn sec" aria-label="Cerrar">✕</button></div>
+  <div class="tabs"><button class="chip" data-t="p" aria-pressed="true">🎨 Pintura</button><button class="chip" data-t="s" aria-pressed="false">🌱 Césped</button></div>
+  <div id="t-p">
+    <div class="grid3"><label>Largo (m)<input id="p-l" type="number" inputmode="decimal" min="0" step="0.1" value="4"></label><label>Ancho (m)<input id="p-a" type="number" inputmode="decimal" min="0" step="0.1" value="3"></label><label>Alto (m)<input id="p-h" type="number" inputmode="decimal" min="0" step="0.1" value="2.5"></label>
+    <label>Puertas<input id="p-pu" type="number" min="0" value="1"></label><label>Ventanas<input id="p-ve" type="number" min="0" value="1"></label><label>Manos<input id="p-m" type="number" min="1" value="2"></label></div>
+    <label>Rendimiento de la pintura (m² por litro, mira el bote)<input id="p-r" type="number" inputmode="decimal" min="1" step="0.5" value="10"></label>
+    <label class="chk-l"><input id="p-t" type="checkbox"> Pintar también el techo</label>
+    <div id="r-p" class="res-box"></div>
+  </div>
+  <div id="t-s" hidden>
+    <div class="grid3"><label>Largo (m)<input id="s-l" type="number" inputmode="decimal" min="0" step="0.1" value="5"></label><label>Ancho (m)<input id="s-a" type="number" inputmode="decimal" min="0" step="0.1" value="4"></label><label>o m² directos<input id="s-m" type="number" inputmode="decimal" min="0" value=""></label></div>
+    <label>Tipo de siembra<select id="s-d"><option value="30">Césped nuevo (30 g/m²)</option><option value="20">Resiembra de huecos (20 g/m²)</option><option value="15">Mantenimiento (15 g/m²)</option></select></label>
+    <div id="r-s" class="res-box"></div>
+  </div>
+  <p class="nota">Cálculo orientativo: sigue siempre la dosis que indique el envase.</p>
+</dialog>
+<div id="tm" class="tm" hidden role="timer"><span id="tm-l"></span><strong id="tm-t">00:00</strong><button id="tm-x" class="btn sec">Parar</button></div>
+<div id="toast" role="status" aria-live="polite"></div>
 <footer class="pie"><div class="wrap">Manitas Fácil · Consejos generales. En electricidad, gas y calefacción, si dudas, llama a un profesional.</div></footer>
 <script src="./js/data.js"></script>
 <script src="./js/tutoriales-extra.js"></script>

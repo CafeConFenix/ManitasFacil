@@ -131,3 +131,16 @@ input:focus,select:focus,textarea:focus{border-color:var(--ink);outline:none}
 .top .btn.sec{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
 .top .btn.sec:hover{border-color:#fff}
 @media(max-width:640px){.top .btn{height:38px;padding:0 12px;font-size:.85rem;gap:6px}}
+/* Cabecera: botones propios, todos con exactamente el mismo tamaño */
+.hdr-actions{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin-left:auto;flex-wrap:wrap}
+.hb{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:8px;height:42px;padding:0 16px;margin:0;border-radius:12px;border:2px solid transparent;font:700 15px/1 "Atkinson Hyperlegible",system-ui,sans-serif;white-space:nowrap;cursor:pointer;transform:none;box-shadow:none}
+.hb svg{flex:none;width:18px;height:18px}
+.hb.fill{background:var(--yel);border-color:var(--yel);color:#14282d}
+.hb.line{background:transparent;border-color:rgba(255,255,255,.4);color:#fff}
+.hb.line:hover{border-color:#fff}
+.hb[hidden]{display:none}
+@media(max-width:640px){.hb{height:38px;padding:0 12px;font-size:13px;gap:6px}.hb svg{width:16px;height:16px}}
+/* Texto solo para lectores de pantalla: oculto de verdad, sin importar el zoom */
+.buscar label{position:absolute;left:0;top:0;width:1px;height:1px;margin:-1px;padding:0;border:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.skip{left:8px;top:8px;transform:translateY(-300%)}
+.skip:focus{transform:none}

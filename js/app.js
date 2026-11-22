@@ -32,6 +32,7 @@ function lista() {
     <p class="ms"><span>⏱ ${esc(t.tiempo)}</span><span>${dots(nivel(t.dificultad))}${esc(t.dificultad)}</span></p></div></a></li>`; }).join("")
     : `<li class="vacio">No hay guías con eso. Prueba otra palabra o añade tu propio tutorial.</li>`;
 }
+const fig = s => { const m = /aria-label="([^"]*)"/.exec(s); return `<figure>${s}${m ? `<figcaption>${m[1]}</figcaption>` : ""}</figure>`; };
 const lst = a => `<ul class="lst">${a.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
 function guia(id) {
   const t = all().find(x => x.id === id);
@@ -50,7 +51,7 @@ function guia(id) {
   ${(t.compra || []).length ? `<section class="card"><h2>🛒 Qué comprar exactamente</h2>${lst(t.compra)}</section>` : ""}</div>
   <h2 class="sec">Paso a paso</h2>
   <p class="prog"><span id="progt">0 de ${n} pasos hechos</span><span class="bar"><i id="progb"></i></span><button class="lnk" id="reset">Reiniciar</button></p>
-  <ol class="pasos">${(t.pasos || []).map((p, i) => `<li><button class="num" aria-pressed="false" aria-label="Marcar el paso ${i + 1} como hecho"><span>${i + 1}</span></button><div class="pbody"><strong>${esc(p.texto)}</strong>${p.detalle ? `<p class="detalle">${esc(p.detalle)}</p>` : ""}${tbtn(p)}${p.svg && !propio ? `<figure>${p.svg}</figure>` : ""}</div></li>`).join("")}</ol>
+  <ol class="pasos">${(t.pasos || []).map((p, i) => `<li><button class="num" aria-pressed="false" aria-label="Marcar el paso ${i + 1} como hecho"><span>${i + 1}</span></button><div class="pbody"><strong>${esc(p.texto)}</strong>${p.detalle ? `<p class="detalle">${esc(p.detalle)}</p>` : ""}${tbtn(p)}${p.svg && !propio ? fig(p.svg) : ""}</div></li>`).join("")}</ol>
   ${(t.problemas || []).length ? `<h2 class="sec">¿Algo salió mal?</h2>${t.problemas.map(p => `<details class="fallo"><summary>${esc(p.fallo)}</summary><p>${esc(p.solucion)}</p></details>`).join("")}` : ""}
   ${propio ? `<button class="btn sec borrar" id="borrar">Borrar este tutorial</button>` : ""}`;
   const nums = [...document.querySelectorAll(".num")];
@@ -119,7 +120,7 @@ async function abrirModo(t, nums, marca, refresh) {
   let i = Math.max(0, nums.findIndex(b => b.getAttribute("aria-pressed") !== "true"));
   const pinta = () => { const p = t.pasos[i];
     $("#m-tit").textContent = t.titulo; $("#m-n").textContent = `Paso ${i + 1} de ${n}`; $("#m-t").textContent = p.texto; $("#m-d").textContent = p.detalle || "";
-    $("#m-f").innerHTML = tbtn(p) + (p.svg && !propio ? `<figure>${p.svg}</figure>` : ""); $("#m-prev").disabled = i === 0;
+    $("#m-f").innerHTML = tbtn(p) + (p.svg && !propio ? fig(p.svg) : ""); $("#m-prev").disabled = i === 0;
     $("#m-next").textContent = i === n - 1 ? "Terminar ✓" : "Siguiente →"; $("#m-bar").style.width = ((i + 1) / n * 100) + "%"; };
   const cerrar = () => { m.hidden = true; document.body.classList.remove("sin-scroll"); try { wl?.release(); } catch {} wl = null; removeEventListener("keydown", tecla); };
   const ir = d => { if (d > 0) { marca(i, true); refresh(); } i += d; if (i >= n) { cerrar(); toast("¡Terminaste! 🎉"); return; } if (i < 0) i = 0; pinta(); };

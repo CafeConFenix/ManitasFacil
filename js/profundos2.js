@@ -1,6 +1,4 @@
 /* Nivel máximo de detalle. Sustituye por id a versiones anteriores. */
-DIB.pelado = V("Cobre visible: 8-10 mm", `<rect x="14" y="50" width="116" height="28" rx="5"/><rect x="130" y="57" width="62" height="14" fill="${Y}"/><path d="M130 61h62M130 67h62" stroke-opacity=".5"/><path d="M130 90v10M192 90v10M130 95h62"/><text x="161" y="48" font-size="11" text-anchor="middle" fill="currentColor" stroke="none">cobre pelado</text><text x="72" y="48" font-size="11" text-anchor="middle" fill="currentColor" stroke="none">funda</text>`);
-DIB.borne = V("El cobre entra hasta el fondo; la funda llega a la entrada", `<rect x="124" y="46" width="84" height="38" rx="4"/><rect x="150" y="20" width="20" height="28" fill="${Y}"/><path d="M154 26h12"/><rect x="14" y="58" width="94" height="14" rx="4"/><rect x="108" y="61" width="72" height="8" fill="${Y}"/><path d="M108 52v26" stroke-dasharray="3 3"/>${F(48,100,106,76)}<text x="30" y="108" font-size="10" fill="currentColor" stroke="none">la funda llega aquí</text>`);
 const NIVEL_MAX = [
 {
  id: "cambiar-enchufe", titulo: "Cambiar un enchufe", categoria: "Enchufes y luz",

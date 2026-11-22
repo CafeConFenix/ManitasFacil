@@ -188,3 +188,12 @@ input:focus,select:focus,textarea:focus{border-color:var(--ink);outline:none}
 .stats div,.pasos3>div{transition:transform .25s,box-shadow .25s}.stats div:hover,.pasos3>div:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(15,42,49,.16)}
 @media(min-width:900px){.items{grid-template-columns:1fr;gap:56px}.item{grid-template-columns:1fr 1fr;align-items:center;gap:48px}.item:nth-child(even) .im{order:2}.item h3{font-size:1.9rem}.item p{font-size:1.1rem}}
 .cred{font-size:.85rem;opacity:.85}
+
+/* Dibujos con su leyenda debajo; portada con la ilustración a la derecha */
+figure{background:none!important;border:0!important;padding:0!important}
+figure svg{border-radius:14px;box-shadow:0 6px 18px rgba(15,42,49,.18)}
+figcaption{margin-top:8px;font-size:.9rem;color:var(--mut);line-height:1.4}
+.hero-img{inset:0;background-size:auto 92%;background-repeat:no-repeat;background-position:right 5% center}
+.hero-img.con-foto{opacity:.95;animation:kb 20s ease-in-out infinite alternate}
+@keyframes kb{from{scale:1}to{scale:1.05}}
+@media(max-width:900px){.hero-img.con-foto{opacity:.3;background-position:center bottom;background-size:auto 70%}}

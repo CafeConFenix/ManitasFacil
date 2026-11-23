@@ -3,6 +3,7 @@
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const rm = matchMedia("(prefers-reduced-motion: reduce)").matches;
 $$("[data-img]").forEach(el => { const d = dibujo(el.dataset.img); if (d) { el.style.backgroundImage = d; el.classList.add("con-foto"); } });
+$$(".tile").forEach(t => { const n = TUTORIALES.filter(x => x.categoria === t.dataset.cat).length; t.querySelector(".ts").textContent = n + (n === 1 ? " guía" : " guías"); });
 $("#c-guias").dataset.count = TUTORIALES.length; $("#c-cats").dataset.count = new Set(TUTORIALES.map(t => t.categoria)).size;
 $$(".tiles .tile,.porque .item").forEach((e, i) => { e.classList.add("reveal"); e.dataset.d = (i % 6) * 90; });
 function cuenta(el) { const n = +el.dataset.count; if (rm) { el.textContent = n; return; } const t0 = performance.now();

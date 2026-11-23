@@ -6,6 +6,8 @@ const norm = t => String(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u03
 const load = () => { try { return JSON.parse(localStorage.getItem(LS)) || []; } catch { return []; } };
 const save = a => { try { localStorage.setItem(LS, JSON.stringify(a)); return true; } catch { return false; } };
 const CAT = {"Fontanería":["💧",205],"Enchufes y luz":["💡",45],"Paredes y pintura":["🎨",330],"Puertas y carpintería":["🚪",25],"Ventanas y exteriores":["🪟",190],"Jardinería":["🌿",130],"Huerto":["🍅",5],"Limpieza y mantenimiento":["🧽",170],"Electrodomésticos":["🔌",260],"Climatización":["❄️",215],"Muebles y montaje":["🪑",35],"Seguridad en casa":["🛡️",350],"Exterior y terraza":["☀️",80]};
+const PAS = {"Fontanería": "#e3d2ed", "Enchufes y luz": "#fee967", "Paredes y pintura": "#febac4", "Puertas y carpintería": "#f8d5c0", "Ventanas y exteriores": "#e1eab4", "Jardinería": "#a9df71", "Huerto": "#ffada5", "Limpieza y mantenimiento": "#95d95d", "Electrodomésticos": "#fee6a7", "Climatización": "#ffc3b3", "Muebles y montaje": "#fdf4b5", "Seguridad en casa": "#febac4", "Exterior y terraza": "#e1eab4"};
+const pas = c => PAS[c] || "#fdf4b5";
 const ci = c => CAT[c] || ["🔧", 220];
 const nivel = d => /muy f/i.test(d) ? 1 : /media|cuidado/i.test(d) ? 3 : 2;
 const dots = n => `<span class="dots" aria-hidden="true">${[1,2,3].map(i => `<i class="${i <= n ? "on" : ""}"></i>`).join("")}</span>`;
@@ -26,7 +28,7 @@ function lista() {
   const r = all().filter(t => (cat === "Todas" || (cat === "★" ? favs.includes(t.id) : t.categoria === cat)) && (!niv || nivel(t.dificultad) === niv) &&
     norm([t.titulo, t.categoria, t.resumen, ...(t.herramientas || [])].join(" ")).includes(nq));
   $("#contador").textContent = `${r.length} ${r.length === 1 ? "guía" : "guías"}`;
-  $("#lista").innerHTML = r.length ? r.map(t => { const [e, h] = ci(t.categoria); return `<li class="rel"><button class="fav" data-f="${esc(t.id)}" aria-pressed="${favs.includes(t.id)}" aria-label="Guardar en favoritos">♥</button><a class="tarjeta" style="--h:${h}" href="#/guia/${esc(t.id)}">
+  $("#lista").innerHTML = r.length ? r.map(t => { const [e, h] = ci(t.categoria); return `<li class="rel"><button class="fav" data-f="${esc(t.id)}" aria-pressed="${favs.includes(t.id)}" aria-label="Guardar en favoritos">♥</button><a class="tarjeta" style="--h:${h};--p:${pas(t.categoria)}" href="#/guia/${esc(t.id)}">
     <span class="ico" aria-hidden="true">${e}</span><div><span class="cat">${esc(t.categoria)}</span><h2>${esc(t.titulo)}</h2>
     ${t.resumen ? `<p class="res">${esc(t.resumen)}</p>` : ""}
     <p class="ms"><span>⏱ ${esc(t.tiempo)}</span><span>${dots(nivel(t.dificultad))}${esc(t.dificultad)}</span></p></div></a></li>`; }).join("")
@@ -38,7 +40,7 @@ function guia(id) {
   const t = all().find(x => x.id === id);
   if (!t) { location.hash = ""; return; }
   const propio = String(t.id).startsWith("c-"), [e, h] = ci(t.categoria), n = (t.pasos || []).length;
-  $("#vista-guia").style.setProperty("--h", h);
+  $("#vista-guia").style.setProperty("--h", h); $("#vista-guia").style.setProperty("--p", pas(t.categoria));
   $("#vista-guia").innerHTML = `
   <a class="volver" href="#">← Todas las guías</a>
   <header class="g-head"><span class="cat">${e} ${esc(t.categoria)}</span><h1>${esc(t.titulo)}</h1>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0e3841">
+<meta name="theme-color" content="#14433d">
 <link rel="manifest" href="./manifest.webmanifest">
 <title>Manitas Fácil · Arregla tú mismo, paso a paso</title>
 <meta name="description" content="Tutoriales sencillos para reparaciones del hogar, bricolaje y jardinería, explicados sin tecnicismos.">
@@ -11,11 +11,12 @@
 <link rel="apple-touch-icon" href="./icon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:wght@700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Playfair+Display:wght@700;800;900&display=swap">
 <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
+<div class="anuncio">Guías gratis, paso a paso y sin palabras raras · Funcionan sin conexión</div>
 <header class="top"><div class="wrap">
   <a class="logo" href="./" aria-label="Manitas Fácil, inicio"><img src="./icon.svg" alt="" width="40" height="40"> Manitas<b>Fácil</b></a>
   <nav class="nav" aria-label="Secciones"><a href="#areas">Áreas</a><a href="#como">Cómo funciona</a><a href="#faq">Preguntas</a></nav>
@@ -27,12 +28,12 @@
 </div></header>
 
 <section id="vista-lista">
-  <div class="hero"><div class="hero-img" data-img="hero" aria-hidden="true"></div><div class="wrap">
+  <div class="hero"><div class="wrap"><div class="hero-img" data-img="hero" aria-hidden="true"></div>
     <h1>Arréglalo <em>tú mismo</em></h1>
     <p>Guías paso a paso, sin palabras raras, para la casa, el bricolaje y el jardín. <span id="stats"></span></p>
     <div class="cta"><a class="hb fill" href="#" id="b-hero">Buscar una guía</a><a class="hb line" href="#como">Cómo funciona</a></div>
   </div>
-    <svg class="ola" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40C240 80 480 0 720 30s480 50 720 10v40H0z" fill="var(--bg)"/></svg></div>
+    </div>
   <div class="wrap">
     <div class="buscar">
       <label for="q">¿Qué quieres arreglar?</label>
@@ -42,11 +43,11 @@
     <div class="barra"><p id="contador" class="contador" aria-live="polite"></p><label class="niv">Dificultad <select id="niv"><option value="0">Todas</option><option value="1">Muy fácil</option><option value="2">Fácil</option><option value="3">Media</option></select></label></div>
     <ul id="lista" class="lista"></ul>
   </div>
-  <section id="areas" class="wrap seccion"><h2 class="reveal">Nuestras áreas</h2><p class="sub reveal">Elige por dónde empezar</p><div class="tiles"><button class="tile" data-img="fontaneria" data-cat="Fontanería" style="--h:205"><span class="te" aria-hidden="true">💧</span><span class="tt">Fontanería</span></button><button class="tile" data-img="electricidad" data-cat="Enchufes y luz" style="--h:45"><span class="te" aria-hidden="true">💡</span><span class="tt">Enchufes y luz</span></button><button class="tile" data-img="pintura" data-cat="Paredes y pintura" style="--h:330"><span class="te" aria-hidden="true">🎨</span><span class="tt">Paredes y pintura</span></button><button class="tile" data-img="carpinteria" data-cat="Puertas y carpintería" style="--h:25"><span class="te" aria-hidden="true">🚪</span><span class="tt">Puertas y carpintería</span></button><button class="tile" data-img="jardin" data-cat="Jardinería" style="--h:130"><span class="te" aria-hidden="true">🌿</span><span class="tt">Jardinería</span></button><button class="tile" data-img="limpieza" data-cat="Limpieza y mantenimiento" style="--h:170"><span class="te" aria-hidden="true">🧽</span><span class="tt">Limpieza y mantenimiento</span></button></div></section>
+  <section id="areas" class="wrap seccion"><h2 class="reveal">Nuestras áreas</h2><p class="sub reveal">Elige por dónde empezar</p><div class="tiles"><button class="tile" data-cat="Fontanería" style="--p:#e3d2ed"><span class="circ" data-img="fontaneria" aria-hidden="true"></span><span class="tt">Fontanería</span><span class="ts"></span></button><button class="tile" data-cat="Enchufes y luz" style="--p:#fee967"><span class="circ" data-img="electricidad" aria-hidden="true"></span><span class="tt">Enchufes y luz</span><span class="ts"></span></button><button class="tile" data-cat="Paredes y pintura" style="--p:#febac4"><span class="circ" data-img="pintura" aria-hidden="true"></span><span class="tt">Paredes y pintura</span><span class="ts"></span></button><button class="tile" data-cat="Puertas y carpintería" style="--p:#f8d5c0"><span class="circ" data-img="carpinteria" aria-hidden="true"></span><span class="tt">Puertas y carpintería</span><span class="ts"></span></button><button class="tile" data-cat="Jardinería" style="--p:#a9df71"><span class="circ" data-img="jardin" aria-hidden="true"></span><span class="tt">Jardinería</span><span class="ts"></span></button><button class="tile" data-cat="Limpieza y mantenimiento" style="--p:#95d95d"><span class="circ" data-img="limpieza" aria-hidden="true"></span><span class="tt">Limpieza y mantenimiento</span><span class="ts"></span></button></div></section>
   <section class="banda" data-img="app"><div class="wrap reveal"><h2>Tu taller en el bolsillo</h2><p>Instala la app, úsala sin conexión y sigue las guías paso a paso con el móvil en la mano.</p><a class="hb fill" href="#" id="b-guias">Buscar una guía</a></div></section>
   <section class="wrap seccion"><div class="stats reveal"><div><strong id="c-guias" data-count="0">0</strong><span>guías paso a paso</span></div><div><strong id="c-cats" data-count="0">0</strong><span>categorías</span></div><div><strong data-count="2">0</strong><span>calculadoras</span></div><div><strong data-count="0">0</strong><span>palabras raras</span></div></div></section>
   <section id="como" class="wrap seccion"><h2 class="reveal">Cómo funciona</h2><div class="pasos3 reveal"><div><b>1</b><h3>Busca tu avería</h3><p>Escribe qué ocurre o elige una categoría.</p></div><div><b>2</b><h3>Sigue los pasos</h3><p>Con dibujos, medidas y avisos de seguridad.</p></div><div><b>3</b><h3>Marca y termina</h3><p>Tu progreso se guarda. Usa el modo paso a paso con las manos ocupadas.</p></div></div></section>
-  <section class="wrap seccion porque"><h2 class="reveal">Por qué Manitas Fácil</h2><div class="items"><div class="item" style="--h:205"><div class="im" data-img="porque1"><span aria-hidden="true">🗣️</span></div><div><h3>Sin palabras raras</h3><p>Cada paso está explicado como se lo contarías a un amigo, con medidas y qué comprar.</p></div></div><div class="item" style="--h:45"><div class="im" data-img="porque2"><span aria-hidden="true">✏️</span></div><div><h3>Dibujos que ayudan</h3><p>Esquemas sencillos en los pasos clave para que sepas qué estás mirando.</p></div></div><div class="item" style="--h:5"><div class="im" data-img="porque3"><span aria-hidden="true">⚠️</span></div><div><h3>Seguridad primero</h3><p>Avisos claros cuando hay que cortar la luz o el agua, y cuándo llamar a un profesional.</p></div></div><div class="item" style="--h:150"><div class="im" data-img="porque4"><span aria-hidden="true">📶</span></div><div><h3>Funciona sin conexión</h3><p>Instálala y úsala en el sótano o el garaje, aunque no haya cobertura.</p></div></div></div></section>
+  <section class="wrap seccion porque"><h2 class="reveal">Por qué Manitas Fácil</h2><div class="items"><div class="item" style="--p:#fdf4b5"><div class="im" data-img="porque1"><span aria-hidden="true">🗣️</span></div><div><span class="etq">Fácil de entender</span><h3>Sin palabras raras</h3><p>Cada paso está explicado como se lo contarías a un amigo, con medidas y qué comprar.</p></div></div><div class="item" style="--p:#febac4"><div class="im" data-img="porque2"><span aria-hidden="true">✏️</span></div><div><span class="etq">Se ve claro</span><h3>Dibujos que ayudan</h3><p>Esquemas sencillos en los pasos clave para que sepas qué estás mirando.</p></div></div><div class="item" style="--p:#e1eab4"><div class="im" data-img="porque3"><span aria-hidden="true">⚠️</span></div><div><span class="etq">Sin sustos</span><h3>Seguridad primero</h3><p>Avisos claros cuando hay que cortar la luz o el agua, y cuándo llamar a un profesional.</p></div></div><div class="item" style="--p:#e3d2ed"><div class="im" data-img="porque4"><span aria-hidden="true">📶</span></div><div><span class="etq">Siempre contigo</span><h3>Funciona sin conexión</h3><p>Instálala y úsala en el sótano o el garaje, aunque no haya cobertura.</p></div></div></div></section>
   <section id="faq" class="wrap seccion faq"><h2 class="reveal">Preguntas frecuentes</h2><details class="fallo"><summary>¿Es gratis?</summary><p>Sí. No hay registro ni anuncios.</p></details><details class="fallo"><summary>¿Necesito experiencia?</summary><p>No. Las guías indican la dificultad y qué necesitas antes de empezar.</p></details><details class="fallo"><summary>¿Cuándo debo llamar a un profesional?</summary><p>Si ves cables quemados, huele a gas, hay humedad que reaparece o simplemente dudas: para y llama a alguien.</p></details><details class="fallo"><summary>¿Se guardan mis datos?</summary><p>Tus favoritos, progreso y tutoriales se guardan solo en tu navegador. No se envía nada a ningún servidor.</p></details></section>
 </section>
 
